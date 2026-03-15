@@ -1,4 +1,5 @@
 🏀 Sports Shop Management System
+
 📌 Project Overview
 The Sports Shop Management System is a web-based application developed using Python Flask and MySQL. This system allows users to browse sports products, view product details, add items to the shopping cart, and place orders online. The application also includes an Admin Panel where the administrator can manage product categories and products. The system helps simplify product management and provides customers with an easy way to purchase sports items online.
 
