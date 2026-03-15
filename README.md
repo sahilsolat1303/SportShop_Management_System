@@ -55,6 +55,7 @@ The Sports Shop Management System is a web-based application developed using Pyt
 
 SportsShopProject
 │
+
 ├── main.py
 ├── urls.py
 ├── adminlogin.py
@@ -66,6 +67,7 @@ SportsShopProject
 │
 
 ├── templates
+
 │   ├── homepage.html
 │   ├── login.html
 │   ├── dashboard.html
@@ -74,6 +76,7 @@ SportsShopProject
 │
 
 └── static
+
     ├── css
     ├── js    
     └── Images
