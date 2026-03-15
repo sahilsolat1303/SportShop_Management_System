@@ -1,0 +1,51 @@
+mysql> use sportshope;
+Database changed
+mysql> create table Category(cid int primary key auto_increment,cname varchar(20));
+mysql> create table product(pid int primary key auto_increment,pname varchar(20),price float,description varchar(100),image_url varchar(100),cid int);
+mysql> alter table product
+    -> add foreign key(cid) references Category(cid);
+create view product_w as (
+    -> select p.pid,p.pname,p.price,p.description,p.image_url,cat.cname,cat.cid from product as p
+    -> inner join category as cat on
+    -> p.cid = cat.cid);
+mysql> select * from product_view;
+create table userlogin(uname varchar(20) primary key, pwd varchar(20));
+create table mycart(id int primary key auto_increment,pid int,username varchar(20),qty int);
+mysql> alter table mycart add foreign key (pid) references product(pid);
+mysql> alter table mycart add foreign key (username) references userlogin(uname);
+
+create view cart_v as(
+    -> select p.pid,p.pname,p.price,p.description,p.image_url,m.id,m.username,m.qty,p.price*m.qty as total,m.order_id from product as p
+    -> inner join mycart as m on m.pid=p.pid);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select* from cart_v;
+
+create table payment(cardno varchar(4),cvv varchar(4),expiry varchar(10),balance float)
+    -> ;
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> insert into payment values('111','111','12/2040',200000)
+    -> ;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into payment values('222','222','12/2040',200000)
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> alter table mycart add status int default 0;
+
+create table order_master(order_id int primary key auto_increment,
+    -> date_of_order date,
+    -> amount float);
+
+mysql> alter table mycart add order_id int;
+
+mysql> alter table mycart add foreign key(order_id) references order_master(order_id);
+
+
+create view order_view as(
+    -> select c.pname,c.price,c.description,c.image_url,c.qty,c.total,c.username,o.order_id,o.date_of_order,o.amount from cart_v as c inner join order_master as o on c.order_id=o.order_id);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select * from order_view;

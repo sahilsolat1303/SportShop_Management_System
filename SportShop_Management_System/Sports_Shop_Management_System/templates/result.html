@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #00b4db, #0083b0);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    h1 {
+      color: #a862b3;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background: #0f0f0f;
+      border-radius: 2px;
+      margin: 15px 0 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 12px 5px;
+      text-align: left;
+      font-size: 16px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #00b4db;
+      box-shadow: 0 0 5px rgba(0, 180, 219, 0.3);
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(90deg, #00b4db, #0083b0);
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      transition: 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(90deg, #0083b0, #00b4db);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 131, 176, 0.4);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #0083b0;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      color: #005f73;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+      <center>
+        <h1>Category</h1>
+        <hr/>
+       
+        <table border="1">
+            <td>Cid</td>
+            <td>Category Name</td>
+            {%for res in res%}
+            <tr>
+                <td>{{res[0]}}</td>
+                <td>{{res[1]}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        </form>
+    </center>
+</body>
+</html>
+</body>
+</html>

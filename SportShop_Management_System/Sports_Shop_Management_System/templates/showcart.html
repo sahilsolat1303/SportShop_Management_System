@@ -1,0 +1,38 @@
+{%extends "homepage.html"%}
+{%block content%}
+<script src="{{url_for('static', filename='js/myscript.js')}}"></script>
+
+<div class="panel panel-primary">        
+        <div class="panel-body">
+
+            <table class="table">
+                <tr><th>Product Name</th><th>Price</th><th>Description</th><th>Image</th><th>Quantity</th><th>Total</th></tr>
+                {%for item in iteam%} 
+                <form method="post">
+                <tr>
+                <td> {{item[1]}} </td>
+                <input type="hidden" name="card_id" value="{{item[5]}}"/>
+                <td> {{item[2]}} </td>
+                <td> {{item[3]}} </td>
+                <td><img src="{{ url_for('static', filename=item[4])}}" 
+                class="img-circle" style="width:120px;height:120px" alt="Image"></td>
+                <td><button type="button" class="btn btn-warning" style="width: 10px" onclick="decrement('qty{{item[5]}}')">-</button> <input type="text" name="qty" id="qty{{item[5]}}" style="width: 50px" value="{{item[7]}}"/>
+                    <button type="button" class="btn btn-warning" style="width: 10px" onclick="increment('qty{{item[5]}}')">+</button></td>
+                <td> {{item[8]}} </td>
+                <td><button type="submit" class="btn btn-danger" name="action" value="edit"><span class="glyphicon glyphicon-edit"></span> Edit </button></td>
+                <td><button type="submit" class="btn btn-danger" name="action" value="delete"><span class="glyphicon glyphicon-trash"></span> Delete </button></td>
+                </tr>
+                </form>
+                {%endfor%}
+                                
+            </table>
+        </div>
+        <div class="panel-footer">          
+        </div>
+        
+      </div>
+</form>
+<hr/>
+<h1>Total : {{session["total"]}}</h1>
+<a href="/makepayment"><button class="btn btn-success">Make Payment</button></a>
+{%endblock%}

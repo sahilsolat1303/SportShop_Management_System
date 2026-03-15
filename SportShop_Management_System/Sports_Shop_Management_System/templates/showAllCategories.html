@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #00b4db, #0083b0);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 50px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 900px;
+      animation: fadeIn 0.8s ease-in-out;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      color: #5d31a4;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      background: linear-gradient(90deg, #00b4db, #9b3ba4);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s ease;
+      margin: 5px;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #0083b0, #00b4db);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 131, 176, 0.4);
+    }
+
+    .back-link {
+      background: none;
+      border: 2px solid #472394;
+      color: #a43376;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: #cd7cbc;
+      color: #bce381;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background-color: #00b4db;
+      border-radius: 2px;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background: #0083b0;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #e0f7fa;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 25px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      button {
+        padding: 8px 15px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+      <center>
+        <h1>Show All Category</h1>
+        <a href="/addcategory"><button>Add New Category</button></a>
+        <a href="/searchcategory"><button>Search Category</button></a>
+        <a href="/dashboard">GO Back</a>
+        <hr/>
+       
+        <table border="1">
+            <td>Cid</td>
+            <td>Category Name</td>
+            <td>Edit</td>
+            <td>Delete</td>
+            {%for cat in cats%}
+            <tr>
+                <td>{{cat[0]}}</td>
+                <td>{{cat[1]}}</td>
+                <td><a href="/editcategory/{{cat[0]}}">
+                <button>Edit</button></a></td>
+	            <td><a href="/deletecategory/{{cat[0]}}">
+                <button>Delete</button></a></td>
+            </tr>
+            {%endfor%}
+        </table>
+      
+    </center>
+</body>
+</html>
+</body>
+</html>

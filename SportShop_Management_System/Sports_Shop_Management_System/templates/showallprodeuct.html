@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #00b4db, #0083b0);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 50px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 95%;
+      max-width: 1100px;
+      animation: fadeIn 0.8s ease-in-out;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      color: #893c9f;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      background: linear-gradient(90deg, #00b4db, #6e498e);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s ease;
+      margin: 5px;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #0083b0, #00b4db);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 131, 176, 0.4);
+    }
+
+    .back-btn {
+      background: #ccc;
+      color: #333;
+    }
+
+    .back-btn:hover {
+      background: #bbb;
+      transform: translateY(-2px);
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background-color: #090a0b;
+      border-radius: 2px;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 15px;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #0083b0;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #e0f7fa;
+    }
+
+    img {
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      transition: transform 0.3s;
+    }
+
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        padding: 25px;
+      }
+      table {
+        font-size: 13px;
+      }
+      th, td {
+        padding: 8px;
+      }
+      img {
+        width: 60px;
+        height: 60px;
+      }
+      button {
+        padding: 8px 15px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+      <center>
+        <h1>Show All Product</h1>
+        <a href="/addproduct"><button>Add New Product</button></a>
+        <a href="/dashboard">GO Back</a>
+        <hr/>
+       
+        <table border="1">
+            <td>Pid</td>
+            <td>Product Name</td>
+            <td>Price</td>
+            <td>Description</td>
+            <td>Image url</td>
+            <td>Cid</td>
+            <td>Edit</td>
+            <td>Delete</td>
+
+            
+            {%for pros in pro%}
+            <tr>
+                <td>{{pros[0]}}</td>
+                <td>{{pros[1]}}</td>
+                <td>{{pros[2]}}</td>
+                <td>{{pros[3]}}</td>
+                <td><img src="{{ url_for('static',filename=pros[4])}}" style="height: 80px;width: 70px"/></td>
+                <td>{{pros[5]}}</td>
+                <td><a href="/editproduct/{{pros[0]}}"><button>Edit </button></a></td>
+                <td><a href="/deleteproduct/{{pros[0]}}"><button>Delete </button></a></td> 
+            </tr>
+            {%endfor%}
+        </table>
+       
+    </center>
+</body>
+</html>
+</body>
+</html>

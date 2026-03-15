@@ -1,0 +1,30 @@
+{%extends "homepage.html"%}
+
+{%block content%}
+<form method="post">
+<h1>{{massage}}</h1>
+      <div class="panel panel-primary">
+        <div class="panel-heading">Register Page</div>
+        <div class="panel-body">
+            <table class="table">
+                <tr><td>User Name:</td>
+                <td><input type="text" name="uname" required class="form-control" style="width: 200px"/></td></tr>
+
+                <tr><td>Password:</td>
+                <td><input type="text" name="pwd" required class="form-control" style="width: 200px"/></td></tr>
+
+                <tr><td>Phone no:</td>
+                <td><input type="number" name="phone" required class="form-control" style="width: 200px"/></td></tr>
+
+                <tr><td>Address:</td>
+                <td><input type="text" name="Add" required class="form-control" style="width: 200px"/></td></tr>
+                
+            </table>
+        </div>
+        <div class="panel-footer">
+         
+            <button type="submit" class="btn btn-danger" >Register</button>
+      </div>
+    </div>
+</form>
+{%endblock%}

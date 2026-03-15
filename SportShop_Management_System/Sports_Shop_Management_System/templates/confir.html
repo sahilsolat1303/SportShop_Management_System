@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #00b4db, #0083b0);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: #6946b3;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background: #09090a;
+      border-radius: 2px;
+      margin: 15px 0 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 15px;
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(90deg, #00b4db, #0083b0);
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+      margin: 8px;
+      width: 100px;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(90deg, #0083b0, #00b4db);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 131, 176, 0.4);
+    }
+
+    input[value="No"] {
+      background: #ccc;
+      color: #333;
+    }
+
+    input[value="No"]:hover {
+      background: #bbb;
+      transform: translateY(-2px);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #0083b0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      color: #005f73;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+    <center>
+        <h1>Delete confiramation</h1>
+        <hr/>
+        <form method="post">
+        <table border="1">
+            <tr><td>Should you won't to delete this recorde?</td></tr>
+            <tr><td>
+                <input type="submit" name="action" value="Yes"/>
+                <input type="submit" name="action" value="No"/></td></tr>
+        </table>
+        </form>
+        </center>
+</body>
+</html>

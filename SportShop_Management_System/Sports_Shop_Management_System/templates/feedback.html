@@ -1,0 +1,64 @@
+{%extends "homepage.html"%}
+
+{%block content%}
+<form method="post" onsubmit="showMessage()">
+
+<h1>{{massage}}</h1>
+
+<div class="panel panel-primary">
+<div class="panel-heading">FeedBack Page</div>
+
+<div class="panel-body">
+<table class="table">
+
+<tr>
+<td>Name :</td>
+<td><input type="text" name="uname" required class="form-control" style="width:200px"/></td>
+</tr>
+
+<tr>
+<td>Email :</td>
+<td><input type="email" name="email" required class="form-control" style="width:200px"/></td>
+</tr>
+
+<tr>
+<td>Phone No :</td>
+<td><input type="text" name="phone" required class="form-control" style="width:200px"/></td>
+</tr>
+
+<tr>
+<td>Rating :</td>
+<td>
+<select name="rating" class="form-control" style="width:200px">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>FeedBack :</td>
+<td><input type="text" name="feedback" required class="form-control" style="width:200px"/></td>
+</tr>
+
+</table>
+</div>
+
+<div class="panel-footer">
+<button type="submit" class="btn btn-danger">Submit</button>
+</div>
+
+</div>
+</form>
+
+<script>
+function showMessage(){
+    alert("Thank you for your feedback!");
+    window.location.href="/";
+}
+</script>
+
+{%endblock%}

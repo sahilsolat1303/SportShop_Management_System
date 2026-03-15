@@ -1,0 +1,27 @@
+{%extends "homepage.html"%}
+
+{%block content%}
+<form method="post">
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">Payment Section</div>
+        <div class="panel-body">
+            <table class="table">
+                <tr><td>Enter Card No.:</td>
+                <td><input type="text" name="cardno" required placeholder="Card No" class="form-control" style="width: 200px"/></td></tr>
+                <tr><td>Enter CVV No:</td>
+                <td><input type="text" name="cvv" required placeholder="CVV" class="form-control" style="width: 200px"/></td></tr>
+                <tr><td>Enter Expiry Details:</td>
+                <td><input type="text" name="expiry" required placeholder="expiry" class="form-control" style="width: 200px"/></td></tr>
+                <tr><td>Total Amount</td>
+                <td><input type="text" name="amount"  readonly value= "{{session['total']
+                }}" class="form-control" style="width: 200px"/></td></tr>
+            </table>
+        </div>
+        <div class="panel-footer">
+         
+            <button type="submit" class="btn btn-danger" >Make Payment</button>
+      </div>
+    </div>
+</form>
+{%endblock%}
